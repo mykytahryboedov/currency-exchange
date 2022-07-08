@@ -1,0 +1,16 @@
+.header{
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+   &::after{
+    position: absolute;
+    top: 4em;
+    left: 0;
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: #686767;
+   }
+}
