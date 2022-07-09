@@ -9,47 +9,52 @@ import Preloader from './components/Preloader/Preloader';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
-const BASE_URL = 'https://api.exchangerate.host/latest?base=UAH&symbols=USD,EUR,PLN'
-
 const USD_URL ='https://api.exchangerate.host/latest?base=UAH&symbols=USD'
 const EUR_URL ='https://api.exchangerate.host/latest?base=UAH&symbols=EUR'
 const PLN_URL ='https://api.exchangerate.host/latest?base=UAH&symbols=PLN'
 
 function App() {
 
-  const [currencyOptions, setCurrencyOptions] = useState([])
   const [currencies, setCurrencies] = useState([])
-
-  const [USDRate, setUSDRate] = useState('')
-  const [EURRate, setEURRate] = useState('')
-  const [PLNRate, setPLNRate] = useState('')
 
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    setIsLoading(true)
-    try {
-      axios.get(BASE_URL).then(response => setCurrencyOptions([response.data.base, ...Object.keys(response.data.rates)]))
-      const USD = axios.get(USD_URL).then(response => console.log(response.data.rates))
-      const EUR = axios.get(EUR_URL).then(response => setEURRate(response.data))
-      const PLN = axios.get(PLN_URL).then(response => setPLNRate(response.data))
-      
-      setCurrencies([USD,EUR,PLN])
+  const [error, setError] = useState('')
 
-    } catch (error) {
-      console.log(error)
+  async function getData() {
+    try {
+      const requests =[axios.get(USD_URL), axios.get(EUR_URL), axios.get(PLN_URL)]
+      setIsLoading(true)
+      const result = await Promise.all(requests)
+
+      const currenciesArray =  result.map(item => item.data.rates)
+      setCurrencies([...currenciesArray])
+      
+    } 
+    catch (error) {
+      setError(error.message)
+      console.error(error)
     }
-    setIsLoading(false)
-  }, [])
+    finally {
+      setIsLoading(false)
+    }
+  }
   
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
+
     <div className="App">
+      {error && (
+        <h1>Sorry mate, {error} ;( </h1>
+      )}
       {isLoading ? <Preloader/>
       : 
       <>
       <Header/>
-      <Converter currencyOptions={currencyOptions}/>
+      <Converter currencies={currencies}/>
       </>  }  
     </div>
   );
