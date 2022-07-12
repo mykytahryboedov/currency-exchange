@@ -1,41 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-body{
+body {
   margin: 0;
   padding: 0;
   background-attachment: fixed;
-  background-image: linear-gradient(to left bottom, #ecdfe7, #e8d0e6, #dec3e9, #ccb8ef, #b1aff6, #8db9ff, #5ec3ff, #00cbff, #3adfeb, #83eed2, #c2f8c2, #faffc2);
-  font-family: 'Varela Round', sans-serif;
-  font-size: 1rem;
+  background-image: linear-gradient(
+    to left bottom,
+    #ecdfe7,
+    #e8d0e6,
+    #dec3e9,
+    #ccb8ef,
+    #b1aff6,
+    #8db9ff,
+    #5ec3ff,
+    #00cbff,
+    #3adfeb,
+    #83eed2,
+    #c2f8c2,
+    #faffc2
+  );
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
 }
 
-h1{
-  font-size: 3rem;
+h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
 }
-h2{
-  font-size: 2.5rem;
+h2 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
 }
-h3{
-  font-size: 2.2rem;
+h3 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
 }
-h4{
-  font-size: 1.85rem;
+h4 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
 }
-h5{
-  font-size: 1.6rem;
+h5 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
 }
-h6{
-  font-size: 1.325rem;
+h6 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 h1,
-
-h5,h6{
-  font-weight: 400;
+h4,
+h6 {
+  font-weight: 700;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Varela Round",sans-serif;
-  letter-spacing: .015rem;
-  margin-top: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", sans-serif;
+  margin: 0;
 }

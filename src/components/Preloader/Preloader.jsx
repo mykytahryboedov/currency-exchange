@@ -19,8 +19,10 @@ export default function Preloader() {
         <Oval  
     height="200"
     width="200"
-    color='blue'
+    color='black'
     ariaLabel='loading'
+    secondaryColor='white'
+    className='spinner-prloader'
   />
     </div>
   )

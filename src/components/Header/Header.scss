@@ -1,15 +1,22 @@
 .header{
+    margin-top: 24px;
     width: 100%;
     justify-content: space-between;
     display: flex;
-    align-items: center;
+    align-items: center; 
+    & span{
+        display: flex;
+    }
+    & h6{
+        padding-left: 8px;
+    }
    &::after{
     position: absolute;
-    top: 4em;
+    top: 80px;
     left: 0;
     content: '';
     height: 2px;
     width: 100vw;
-    background-color: #686767;
+    background-color: lighten($color: black, $amount: 50);
    }
 }

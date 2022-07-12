@@ -56,6 +56,7 @@ function App() {
       <Header/>
       <Converter currencies={currencies}/>
       </>  }  
+      <Preloader/>
     </div>
   );
 }

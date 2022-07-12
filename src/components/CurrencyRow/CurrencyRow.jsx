@@ -4,8 +4,9 @@ export default function CurrencyRow({ selectedCurrency, amount, setAmount, conve
  
   return (
     <div className="currencies">
+      <label htmlFor="currency">You send</label>
       <div className="currencies-input">
-        <input type="number" name="" id="" value={amount} onChange={event => setAmount(event.target.value) }/>
+        <input type="number" name="" id="currency" value={amount} onChange={event => setAmount(event.target.value) }/>
         <span>UAH</span>
       </div>
       <h3 className="currencies-result">{`${convertedAmount} ${Object.keys(selectedCurrency)[0]}`} </h3>
